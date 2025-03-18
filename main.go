@@ -14,22 +14,26 @@ type Task struct {
 }
 
 func main() {
-	tasks := make(map[int]Task)
+
+	tasks := []Task{
+		{1,
+			"My first Project",
+			"Completing my first Project",
+			time.Now().AddDate(2025, 03, 18),
+			time.Now(),
+		},
+	}
+	fmt.Println(tasks)
 
 	newTask := Task{
-		Id:          1,
-		Status:      "My Project",
-		Description: "Completing my first Project",
-		CreatedAt:   time.Now().AddDate(2025, 03, 18),
+		Id:          2,
+		Status:      "My second Project",
+		Description: "Completing my Second Project",
+		CreatedAt:   time.Now(),
 		UpdatedAt:   time.Now(),
 	}
 
-	tasks[newTask.Id] = newTask
+	tasks = append(tasks, newTask)
+	fmt.Println(tasks)
 
-	fmt.Println(newTask)
-
-	newTask, exists := tasks[1]
-	if exists {
-		fmt.Println("Task Found:")
-	}
 }
